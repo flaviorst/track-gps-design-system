@@ -13,13 +13,6 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag'
-  },
-  webpackFinal: async (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      config.output?.publicPath ? '/track-gps-design-system/' : null
-    }
-
-    return config
   }
 }
 export default config
