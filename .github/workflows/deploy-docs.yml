@@ -24,6 +24,9 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook -- --preview-url=/track-gps-design-system/iframe.html
 
+      - name: Initialize MSW
+        run: npx msw init public/
+
       - name: Deploy Storybook
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:

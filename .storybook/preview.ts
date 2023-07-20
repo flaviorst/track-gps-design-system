@@ -6,9 +6,21 @@ import '../src/app/globals.css'
 
 import { initialize, mswLoader } from 'msw-storybook-addon'
 
-initialize({
-  onUnhandledRequest: 'bypass'
-})
+let options = {}
+if (location.hostname === 'flaviorst.github.io') {
+  options = {
+    onUnhandledRequest: 'bypass',
+    serviceWorker: {
+      url: '/track-gps-design-system/mockServiceWorker.js'
+    }
+  }
+} else {
+  options = {
+    onUnhandledRequest: 'bypass'
+  }
+}
+
+initialize(options)
 
 const preview: Preview = {
   parameters: {
